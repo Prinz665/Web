@@ -1,0 +1,209 @@
+/*menu with jquery.horizontalNav.js*/
+
+nav { 
+	position:relative; 
+	z-index: 111;
+	margin-top: 52px;
+	margin-bottom: 25px;
+	text-align: center;
+	float: right;
+}
+
+.sf-menu { display: inline-block;}
+.sf-menu ul {position:absolute; top:-999px; display:none;/* left offset of submenus need to match (see below) */}
+.sf-menu li { padding-left:0px; position:relative; }
+	.sf-menu a {
+		display: block;
+		text-decoration: none;
+		font-weight: 300;
+	}
+		.sf-menu a:hover {text-decoration: none;}
+
+/*================================>> 1 Level <<========================================*/
+
+li.sfHover {position: relative;}
+
+.sf-menu > li > a {
+	position: relative;
+	display:block;
+	text-align: center;
+	-moz-transition: background 0.3s ease-out;
+    -o-transition: background 0.3s ease-out;
+    -webkit-transition: background 0.3s ease-out;
+    font-size: 17px;
+    color: #292929;
+    line-height: 35px;
+}
+.sf-menu > li {
+	display: block;
+	margin: 0 0 0 25px;
+	float: left;
+	position: relative;
+}
+	.sf-menu > li.current > a,
+	.sf-menu > li:hover > a,
+	.sf-menu > li.sfHover > a {	color: #4c81be;}
+
+	.sf-menu > li:hover > a, 
+	.sf-menu > li.current > a, 
+	.sf-menu > li.sfHover > a,
+	.sf-menu > li:hover > span, 
+	.sf-menu > li.current > span, 
+	.sf-menu > li.sfHover > span {	text-decoration: none;}
+
+.sf-menu > li > a.sf-with-ul:after {
+		position: absolute;
+		display: block;
+		content: "\f107";
+		left: 0px;
+		right: 0;
+		text-align: center;
+		margin-left: -1px;
+		bottom: -2px;
+		-moz-transition: top 0.3s ease-out;
+		-o-transition: top 0.3s ease-out;
+		-webkit-transition: top 0.3s ease-out;
+		overflow: hidden;
+		display: inline-block;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-size: 15px;
+		color: #292929;
+	}
+	
+	.sf-menu > li > a.sf-with-ul:hover:after,
+	.sf-menu > li.current > a.sf-with-ul:after {color: #4c81be;}
+	
+/*================================>> 2 Level <<========================================*/
+
+.sf-menu > li > ul, 
+.sf-menu > li.sfHover > ul {
+	top: 34px;
+	left: -4px;
+	width: 203px;
+	z-index:99;
+	text-align: left;
+	padding: 0;
+}
+.sf-menu > li > ul > li { height: auto;}
+.sf-menu > li > ul > li + li a { border-top: 1px solid #4e4d4e;}
+.sf-menu > li > ul > li > a {
+	background: #232324;
+	display: block;
+	border: none;
+	color: #ffffff;
+	font-size: 13px;
+	line-height: 34px;
+	-moz-transition: color 0.3s ease-out;
+    -o-transition: color 0.3s ease-out;
+    -webkit-transition: color 0.3s ease-out; 
+    
+	padding-left: 10px;
+}
+.sf-menu li li a:hover, 
+.sf-menu li.sfHover li.sfHover>a,
+.sf-menu li li:hover span,
+.sf-menu li.sfHover li.sfHover span { 
+	text-decoration: none;
+	color: #75aff2;
+	background: #303030;
+}
+.sf-menu li li:hover, 
+.sf-menu li.sfHover li.sfHover { }
+
+.sf-menu > li li > a > span {
+	position: absolute;
+	width: 4px;
+	height: 7px;
+	top: 9px;
+	right: 16px;
+	background: url(../images/arrow-1.png) right 0 no-repeat;
+}
+.sf-menu > li > ul > li > a.sf-with-ul:after {
+	position: absolute;
+	display: block;
+	content: "\f107";
+	right: 8px;
+	text-align: center;
+	margin-left: -10px;
+	top: 11px;
+	-moz-transition: top 0.3s ease-out;
+	-o-transition: top 0.3s ease-out;
+	-webkit-transition: top 0.3s ease-out;
+	overflow: hidden;
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 15px;
+	color: #fff;
+}
+/*================================>> 3 Level <<========================================*/
+
+.sf-menu li li ul {
+	left: 0;
+	top: 0;
+	width: auto;
+	z-index:99;
+	position: relative;
+	padding-top: 0;
+	padding-bottom: 0px;
+	margin-top: 0;
+	text-align: left;
+}
+
+.sf-menu li li li {width: 100%;}
+.sf-menu li li li a {
+	display:block;
+	text-decoration: none;
+	color: #ffffff;
+	font-size: 13px;
+	line-height: 35px; 
+	padding-left: 20px;
+	background: #232324;
+}
+.sf-menu li li li + li a { border-top: 1px solid #4e4d4e;}
+.sf-menu li li li:hover {}
+.sf-menu li li li:hover a {	color: #75aff2; background: #303030;}
+
+/*==================================RESPONSIVE LAYOUTS===============================================*/
+
+@media only screen and (max-width: 995px) {
+	.sf-menu > li { margin: 0 0 0 6px;}
+}
+
+@media only screen and (max-width: 767px) {
+	.sf-menu { display:none !important;}
+	nav { float: none; margin-left: 0; margin-bottom: 0; margin-top: 15px; padding-left: 0;}
+	h1 { float: none;}
+	nav select {
+		height: 35px;
+		border: 1px solid #5388c6;
+		font-family: Trebuchet MS, sans-serif; 
+		font-size: 14px;
+		line-height: 20px;
+		color: #fff;
+		background-color: #5388c6;
+		width:420px;
+		width: 100%;
+	    outline: none;
+	    padding: 5px;
+		font-weight: normal;
+		margin-top: 10px;
+	}
+
+	nav select option:first-child {
+		color:#ffffff;
+	}
+}
+
+@media only screen and (max-width: 479px) {
+	nav select { margin-top: 10px;}
+}
